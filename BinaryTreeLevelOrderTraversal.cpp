@@ -3,7 +3,7 @@ public:
     vector<vector<int>> levelOrder(TreeNode* root) {
         vector<vector<int>> result;
 
-        if (!root) return result;
+        if (!root) return result;   
 
         queue<TreeNode*> q;
         q.push(root);
