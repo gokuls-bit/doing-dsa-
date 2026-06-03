@@ -1,6 +1,276 @@
 
 class Solution {
 public:
+    vector<vector<int>> levelOrder(TreeNode* root) {
+        vector<vector<int>> result;
+
+        if (!root) return result;
+
+        queue<TreeNode*> q;
+        q.push(root);
+
+        while (!q.empty()) {
+
+            int size = q.size();
+            vector<int> level;
+
+            for (int i = 0; i < size; i++) {
+
+                TreeNode* node = q.front();
+                q.pop();
+
+                level.push_back(node->val);
+
+                if (node->left) q.push(node->left);
+                if (node->right) q.push(node->right);
+            }
+
+            result.push_back(level);
+        }
+
+        return result;
+    }
+};
+
+class Solution {
+public:
+    int removeDuplicates(vector<int>& nums) {
+
+        if (nums.empty()) return 0;
+
+        int k = 1;
+
+        for (int i = 1; i < nums.size(); i++) {
+
+            if (nums[i] != nums[k - 1]) {
+                nums[k] = nums[i];
+                k++;
+            }
+        }
+
+        return k;
+    }
+};
+
+class Solution {
+public:
+    int romanToInt(string s) {
+
+        unordered_map<char,int> mp = {
+            {'I',1},
+            {'V',5},
+            {'X',10},
+            {'L',50},
+            {'C',100},
+            {'D',500},
+            {'M',1000}
+        };
+
+        int ans = 0;
+
+        for (int i = 0; i < s.size(); i++) {
+
+            if (i + 1 < s.size() && mp[s[i]] < mp[s[i + 1]])
+                ans -= mp[s[i]];
+            else
+                ans += mp[s[i]];
+        }
+
+        return ans;
+    }
+};
+
+class Solution {
+public:
+    int maximumJumps(vector<int>& nums, int target) {
+
+        int n = nums.size();
+
+        vector<int> dp(n, -1);
+
+        dp[0] = 0;
+
+        for (int i = 1; i < n; i++) {
+
+            for (int j = 0; j < i; j++) {
+
+                if (dp[j] != -1 &&
+                    abs((long long)nums[i] - nums[j]) <= target) {
+
+                    dp[i] = max(dp[i], dp[j] + 1);
+                }
+            }
+        }
+
+        return dp[n - 1];
+    }
+};
+
+class Solution {
+public:
+    vector<int> separateDigits(vector<int>& nums) {
+
+        vector<int> ans;
+
+        for (int num : nums) {
+
+            string s = to_string(num);
+
+            for (char c : s)
+                ans.push_back(c - '0');
+        }
+
+        return ans;
+    }
+};
+
+class Solution {
+public:
+    int threeSumClosest(vector<int>& nums, int target) {
+
+        sort(nums.begin(), nums.end());
+
+        int n = nums.size();
+
+        int closest = nums[0] + nums[1] + nums[2];
+
+        for (int i = 0; i < n - 2; i++) {
+
+            int left = i + 1;
+            int right = n - 1;
+
+            while (left < right) {
+
+                int sum = nums[i] + nums[left] + nums[right];
+
+                if (abs(sum - target) < abs(closest - target))
+                    closest = sum;
+
+                if (sum < target)
+                    left++;
+                else if (sum > target)
+                    right--;
+                else
+                    return sum;
+            }
+        }
+
+        return closest;
+    }
+};
+
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+
+        int left = 0;
+        int right = nums.size() - 1;
+
+        while (left < right) {
+
+            int mid = left + (right - left) / 2;
+
+            if (nums[mid] > nums[right])
+                left = mid + 1;
+            else if (nums[mid] < nums[right])
+                right = mid;
+            else
+                right--;
+        }
+
+        return nums[left];
+    }
+};
+
+class Solution {
+public:
+    bool canReach(vector<int>& arr, int start) {
+
+        int n = arr.size();
+
+        queue<int> q;
+
+        vector<bool> visited(n, false);
+
+        q.push(start);
+        visited[start] = true;
+
+        while (!q.empty()) {
+
+            int i = q.front();
+            q.pop();
+
+            if (arr[i] == 0)
+                return true;
+
+            int forward = i + arr[i];
+            int backward = i - arr[i];
+
+            if (forward < n && !visited[forward]) {
+                visited[forward] = true;
+                q.push(forward);
+            }
+
+            if (backward >= 0 && !visited[backward]) {
+                visited[backward] = true;
+                q.push(backward);
+            }
+        }
+
+        return false;
+    }
+};
+
+class Solution {
+public:
+    bool isValid(string s) {
+
+        stack<char> st;
+
+        for (char c : s) {
+
+            if (c == '(' || c == '[' || c == '{') {
+                st.push(c);
+            }
+            else {
+
+                if (st.empty())
+                    return false;
+
+                char top = st.top();
+                st.pop();
+
+                if ((c == ')' && top != '(') ||
+                    (c == ']' && top != '[') ||
+                    (c == '}' && top != '{'))
+                    return false;
+            }
+        }
+
+        return st.empty();
+    }
+};
+
+class Solution {
+public:
+    bool check(vector<int>& nums) {
+
+        int n = nums.size();
+
+        int count = 0;
+
+        for (int i = 0; i < n; i++) {
+
+            if (nums[i] > nums[(i + 1) % n])
+                count++;
+        }
+
+        return count <= 1;
+    }
+};
+
+class Solution {
+public:
     int removeElement(vector<int>& nums, int val) {
 
         int k = 0;
