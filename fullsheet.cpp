@@ -16,10 +16,6 @@ public:
     }
 };
 
-
-# 12. Find First Occurrence in a String (strStr)
-
-```cpp
 class Solution {
 public:
     int strStr(string haystack, string needle) {
@@ -41,13 +37,7 @@ public:
         return -1;
     }
 };
-```
 
----
-
-# 13. Divide Two Integers
-
-```cpp
 class Solution {
 public:
     int divide(int dividend, int divisor) {
@@ -75,13 +65,7 @@ public:
         return (int)ans;
     }
 };
-```
 
----
-
-# 14. Asteroids Destroyed
-
-```cpp
 class Solution {
 public:
     bool asteroidsDestroyed(int mass, vector<int>& asteroids) {
@@ -101,13 +85,7 @@ public:
         return true;
     }
 };
-```
 
----
-
-# 15. Minimum Cost of Buying Candies With Discount
-
-```cpp
 class Solution {
 public:
     int minimumCost(vector<int>& cost) {
@@ -125,13 +103,7 @@ public:
         return total;
     }
 };
-```
 
----
-
-# 16. Number of Ways to Paint N × 3 Grid
-
-```cpp
 class Solution {
 public:
     int numOfWays(int n) {
@@ -156,13 +128,7 @@ public:
         return (aba + abc) % MOD;
     }
 };
-```
 
----
-
-# 17. Minimum Element After Replacement With Digit Sum
-
-```cpp
 class Solution {
 public:
 
@@ -189,13 +155,7 @@ public:
         return ans;
     }
 };
-```
 
----
-
-# 18. Count Special Characters II
-
-```cpp
 class Solution {
 public:
     int numberOfSpecialChars(string word) {
@@ -235,13 +195,7 @@ public:
         return count;
     }
 };
-```
 
----
-
-# 19. Password Strength
-
-```cpp
 class Solution {
 public:
     int passwordStrength(string password) {
@@ -270,13 +224,7 @@ public:
         return strength;
     }
 };
-```
 
----
-
-# 20. Limit Occurrences
-
-```cpp
 class Solution {
 public:
     vector<int> limitOccurrences(vector<int>& nums, int k) {
@@ -297,13 +245,7 @@ public:
         return ans;
     }
 };
-```
 
----
-
-# 21. Earliest Finish Time for Land and Water Rides I
-
-```cpp
 class Solution {
 public:
 
@@ -353,13 +295,7 @@ public:
         return min(landFirst, waterFirst);
     }
 };
-```
 
----
-
-# 22. Check Reachability in Binary String (Jump Game VII)
-
-```cpp
 class Solution {
 public:
     bool canReach(string s, int minJump, int maxJump) {
@@ -408,19 +344,3 @@ public:
         return false;
     }
 };
-```
-
----
-
-### Remaining Major Problems Not Yet Included
-
-* Minimum Effort Tasks (Greedy)
-* String Indices (Trie)
-* Prime Teleportation (BFS + SPF)
-* Substring with Concatenation of All Words
-* Minimum Moves to Make Array Complementary
-* Block Placement Queries
-* Any others you asked that need longer implementations
-
-Those are larger solutions and fit well into a **Batch 3 (Advanced Problems)**.
-
