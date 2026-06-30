@@ -1,9 +1,6 @@
 class Solution(object):
     def numberOfSubstrings(self, s):
-        """
-        :type s: str
-        :rtype: int
-        """
+    
         count = {'a': 0, 'b': 0, 'c': 0}
         left = 0
         ans = 0
@@ -17,4 +14,4 @@ class Solution(object):
                 count[s[left]] -= 1
                 left += 1
 
-        return ans
+        return ans 
