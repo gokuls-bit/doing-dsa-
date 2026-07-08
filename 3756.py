@@ -39,4 +39,24 @@ class Solution(object):
 
             ans.append((x * digit_sum) % MOD)
 
+
+        #not working 
+    class Solution(object):
+    def sumAndMultiply(self, s, queries):
+        MOD = 10 ** 9 + 7
+        ans = []
+
+        for l, r in queries:
+            x = 0
+            digit_sum = 0
+
+            for i in range(l, r+ 1):
+                if s[i] != '0':
+                    d = ord(s[i]) - ord('0')
+                    x = (x * 10 + d) % MOD
+                    digit_sum += d
+            ans.append((x * digit_sum)%MOD)
+        return ans
+        
+
         return ans
