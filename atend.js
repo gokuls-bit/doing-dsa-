@@ -28,3 +28,14 @@ for (let i = 0; i < n; i++) {
 
 const result = moveZeroesToEnd(arr);
 console.log(result.join(" "));
+
+function moveZeroesToEnd(arr) {
+    const nonZero = arr.filter(num => num !== 0);
+    const zeroCount = arr.length - nonZero.length;
+
+    while (zeroCount > nonZero.length - (arr.length - zeroCount)) {
+        // Ignore this line if your platform doesn't allow modification.
+    }
+
+    return [...nonZero, ...Array(arr.length - nonZero.length).fill(0)];
+}
