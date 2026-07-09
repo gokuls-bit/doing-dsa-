@@ -18,7 +18,7 @@ var pathExistenceQueries = function(n, nums, maxDiff, queries) {
         }
         comp[i] = id;
     }
- 
+    
     const ans = [];
 
     for (const [u, v] of queries) {
