@@ -43,3 +43,22 @@ function moveZeroesToEnd(arr) {
     const nonZero = arr.filter(num => num !== 0);
     return nonZero.concat(Array(arr.length - nonZero.length).fill(0));
 }
+function solve(arr) {
+    let result = [];
+    let count = 0;
+
+    for (let num of arr) {
+        if (num !== 0) {
+            result.push(num);
+        } else {
+            count++;
+        }
+    }
+
+    while (count > 0) {
+        result.push(0);
+        count--;
+    }
+
+    return result;
+}
