@@ -39,3 +39,7 @@ function moveZeroesToEnd(arr) {
 
     return [...nonZero, ...Array(arr.length - nonZero.length).fill(0)];
 }
+function moveZeroesToEnd(arr) {
+    const nonZero = arr.filter(num => num !== 0);
+    return nonZero.concat(Array(arr.length - nonZero.length).fill(0));
+}
