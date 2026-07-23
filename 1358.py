@@ -3,7 +3,7 @@ class Solution(object):
     
         count = {'a': 0, 'b': 0, 'c': 0}
         left = 0
-        ans = 0
+        ans = 0 
         n = len(s)
 
         for right in range(n):
