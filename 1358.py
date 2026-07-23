@@ -6,7 +6,7 @@ class Solution(object):
         ans = 0 
         n = len(s)
 
-        for right in range(n):
+        for right in range(n):   
             count[s[right]] += 1
 
             while count['a'] > 0 and count['b'] > 0 and count['c'] > 0:
