@@ -40,7 +40,79 @@ public:
                     runs[i - 1].second + runs[i + 1].second
                 );
             }
+        }class Solution {
+public:
+    int uniqueXorTriplets(vector<int>& nums) {
+
+        const int MAXX = 2048;
+
+        vector<vector<bool>> dp(4, vector<bool>(MAXX, false));
+
+        dp[0][0] = true;
+
+        for (int value : nums) {
+
+            for (int taken = 2; taken >= 0; taken--) {
+
+                for (int x = 0; x < MAXX; x++) {
+
+                    if (dp[taken][x]) {
+
+                        dp[taken + 1][x ^ value] = true;
+                    }
+                }
+            }
         }
+
+        int answer = 0;
+
+        for (int x = 0; x < MAXX; x++) {
+
+            if (dp[1][x] || dp[3][x]) {
+
+                answer++;
+            }
+        }
+
+        return answer;
+    }
+};class Solution {
+public:
+    int uniqueXorTriplets(vector<int>& nums) {
+
+        const int MAXX = 2048;
+
+        vector<vector<bool>> dp(4, vector<bool>(MAXX, false));
+
+        dp[0][0] = true;
+
+        for (int value : nums) {
+
+            for (int taken = 2; taken >= 0; taken--) {
+
+                for (int x = 0; x < MAXX; x++) {
+
+                    if (dp[taken][x]) {
+
+                        dp[taken + 1][x ^ value] = true;
+                    }
+                }
+            }
+        }
+
+        int answer = 0;
+
+        for (int x = 0; x < MAXX; x++) {
+
+            if (dp[1][x] || dp[3][x]) {
+
+                answer++;
+            }
+        }
+
+        return answer;
+    }
+};
 
         return baseOnes + bestGain;
     }
